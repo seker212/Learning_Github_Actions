@@ -13,7 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout target
+      uses: actions/checkout@v3
+      with:
+        ref: '${{ github.base_ref }}'
+    - name: Merge head
+      run: git merge --no-ff ${{ github.head_ref }}
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
