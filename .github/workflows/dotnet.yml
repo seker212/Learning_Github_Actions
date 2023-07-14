@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Echo
+      run: echo ${{ github.event.pull_request.head.repo.clone_url }}
     - name: Checkout target
       uses: actions/checkout@v3
       with:
