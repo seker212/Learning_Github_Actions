@@ -22,7 +22,7 @@ jobs:
           git config --local user.email "mock@mail.com"
           git config --local user.name "Github Actions"
     - name: Add remote
-      run: git remote add incoming ${{ github.event.pull_request.head.repo.git_url }}
+      run: git remote add incoming ${{ github.event.pull_request.head.repo.clone_url }}
     - name: Fetch head
       run: git fetch --unshallow incoming ${{ github.head_ref }}
     - name: Merge head
