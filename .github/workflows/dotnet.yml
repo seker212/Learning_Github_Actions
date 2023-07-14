@@ -21,6 +21,8 @@ jobs:
       run: |
           git config --local user.email "mock@mail.com"
           git config --local user.name "Github Actions"
+    - name: Echo Test
+      run: echo ${{ github.event.pull_request.head.repo.clone_url }}
     - name: Fetch head
       run: git fetch --unshallow origin ${{ github.head_ref }}
     - name: Merge head
